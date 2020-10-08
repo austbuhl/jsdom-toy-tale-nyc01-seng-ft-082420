@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         image: e.target.image.value,
         likes: 0
       }
-
+      
       let configObj = {
         method: "POST",
         headers: {
@@ -55,10 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         body: JSON.stringify(newToy)
       }
-
+      
       fetch("http://localhost:3000/toys", configObj)
-        .then(response => response.json())
-        .then(newToy => renderToy(newToy))
+      .then(response => response.json())
+      .then(newToy => renderToy(newToy))
+      
+      addToyForm.reset()
     })
 
 });
