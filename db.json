@@ -10,7 +10,7 @@
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": 27
     },
     {
       "id": 3,
@@ -57,7 +57,7 @@
     {
       "name": "asdf",
       "image": "asdf",
-      "likes": 0,
+      "likes": 1,
       "id": 10
     },
     {
@@ -69,7 +69,7 @@
     {
       "name": "",
       "image": "",
-      "likes": 0,
+      "likes": 1,
       "id": 12
     },
     {
@@ -77,6 +77,12 @@
       "image": "asdfasdf",
       "likes": 0,
       "id": 13
+    },
+    {
+      "name": "something",
+      "image": "image",
+      "likes": 0,
+      "id": 14
     }
   ]
 }

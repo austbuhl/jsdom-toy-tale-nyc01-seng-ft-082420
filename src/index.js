@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const cardDiv = document.createElement('div')
       cardDiv.classList.add('card')
+      cardDiv.dataset.id = toy.id
   
       cardDiv.innerHTML = `
         <h2>${toy.name}</h2>
@@ -61,6 +62,46 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(newToy => renderToy(newToy))
       
       addToyForm.reset()
+    })
+    function changeLike(toy){
+      const currentToy = document.querySelector(`[data-id ="${toy.id}"]`)
+      currentToy.querySelector("p").textContent = `${toy.likes} Likes`
+    }
+
+    function incrementLikes(card){
+      let likes = parseInt(card.querySelector("p").textContent)
+      console.log(likes)
+      likes++
+      const configObj = {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+          body: JSON.stringify({
+          "likes": likes
+          })
+        }
+      fetch(`http://localhost:3000/toys/${card.dataset.id}`, configObj)
+      .then(response => response.json())
+        .then(updatedToy => changeLike(updatedToy))
+
+    }
+
+
+    
+    document.addEventListener("click", function(e){
+    if (e.target.matches(".like-btn"))
+    {  const card = e.target.parentElement
+    console.log(card)
+    const cardId = card.dataset.id
+    incrementLikes(card)
+    
+  }
+
+
+
+
     })
 
 });
